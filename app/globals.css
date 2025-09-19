@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 13% 4%;
+  --foreground: 220 13% 88%;
+  --card: 220 13% 6%;
+  --card-foreground: 220 13% 88%;
+  --popover: 220 13% 6%;
+  --popover-foreground: 220 13% 88%;
+  --primary: 220 13% 88%;
+  --primary-foreground: 220 13% 4%;
+  --secondary: 220 13% 12%;
+  --secondary-foreground: 220 13% 88%;
+  --muted: 220 13% 12%;
+  --muted-foreground: 220 13% 60%;
+  --accent: 220 13% 12%;
+  --accent-foreground: 220 13% 88%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 220 13% 88%;
+  --border: 220 13% 15%;
+  --input: 220 13% 15%;
+  --ring: 220 13% 88%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cyber-dark text-cyber-text font-sans;
+    background-image: 
+      radial-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-darker;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-cyan/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyber-cyan/50;
+  }
+
+  /* Glow utilities */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  .glow-cyan-strong {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.4);
+  }
+
+  .glow-magenta {
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+
+  .border-glow-cyan {
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer components {
+  .cyber-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium transition-all duration-300;
+    @apply bg-transparent border border-cyber-cyan text-cyber-cyan;
+    @apply hover:text-cyber-dark hover:bg-cyber-cyan;
+    @apply before:absolute before:inset-0 before:-z-10 before:translate-x-[-100%] before:transition-transform before:duration-300;
+    @apply before:bg-gradient-to-r before:from-cyber-cyan before:to-cyber-magenta;
+    @apply hover:before:translate-x-0;
+  }
+
+  .neon-underline {
+    @apply relative;
+  }
+
+  .neon-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-cyber-cyan transition-all duration-300;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  }
+
+  .neon-underline:hover::after {
+    @apply w-full;
+  }
+
+  .tech-pill {
+    @apply px-3 py-1 text-xs font-mono border border-cyber-cyan/30 rounded-full;
+    @apply bg-cyber-cyan/5 text-cyber-cyan transition-all duration-300;
+    @apply hover:border-cyber-cyan hover:bg-cyber-cyan/10 hover:glow-cyan;
+  }
+}
