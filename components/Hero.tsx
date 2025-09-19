@@ -97,7 +97,7 @@ export function Hero() {
             className="flex items-center justify-center space-x-4 text-cyber-muted"
           >
             <SplitText
-              text="Hello, World..."
+              text="Hello, World... i'm"
               tag="h1" 
               className="text-4xl font-bold tracking-wider"
               delay={80}
