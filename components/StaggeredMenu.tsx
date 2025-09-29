@@ -40,11 +40,11 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   displaySocials = true,
   displayItemNumbering = true,
   className,
-  logoUrl = '/icon.svg',
-  menuButtonColor = '#fff',
-  openMenuButtonColor = '#fff',
+  logoUrl = '/logo2.png',
+  menuButtonColor = '#ffffff',
+  openMenuButtonColor = '#000000',
   changeMenuColorOnOpen = true,
-  accentColor = '#5227FF',
+  accentColor = '#00FFFF',
   onMenuOpen,
   onMenuClose
 }: StaggeredMenuProps) => {
@@ -367,7 +367,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       <header className="staggered-menu-header" aria-label="Main navigation header">
         <div className="sm-logo" aria-label="Logo">
           <img
-            src={logoUrl || '/icon.svg'}
+            src={logoUrl || '/logo2.png'}
             alt="Logo"
             className="sm-logo-img"
             draggable={false}

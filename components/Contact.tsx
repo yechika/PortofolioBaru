@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Github, MapPin, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
+import CardSwap, { Card } from './CardSwap';
 
 export function Contact() {
   const [hoveredContact, setHoveredContact] = useState<string | null>(null);
-  // Send message form removed per request
 
   const contacts = [
     {
@@ -27,7 +27,6 @@ export function Contact() {
     }
   ];
 
-  // Form handlers removed
 
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
@@ -97,14 +96,14 @@ export function Contact() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8 max-w-2xl mx-auto"
+            className="space-y-8"
           >
             <div>
               <h3 className="text-2xl font-bold text-cyber-text mb-6 flex items-center">
@@ -155,11 +154,86 @@ export function Contact() {
                 ))}
               </div>
             </div>
-
-            {/* Quick Stats removed */}
           </motion.div>
 
-          {/* Contact form removed */}
+          {/* Card Swap Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative h-[400px] md:h-[500px] lg:h-[500px] flex justify-center items-center"
+          >
+            <CardSwap
+              cardDistance={60}
+              verticalDistance={70}
+              delay={3500}
+              pauseOnHover={true}
+              width={300}
+              height={400}
+            >
+              <Card>
+                <div className="relative h-full overflow-hidden rounded-lg">
+                  <img
+                    src="/photo1.jpg"
+                    alt="Project Photo 1"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwQTBBMEEiLz48dGV4dCB4PSIxNTAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzAwRkZGRiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCI+UGhvdG8gMTwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzg4ODg4OCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0PjwvN3ZnPg==';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                  </div>
+                </div>
+              </Card>
+              <Card>
+                <div className="relative h-full overflow-hidden rounded-lg">
+                  <img
+                    src="/photo2.jpg"
+                    alt="Project Photo 2"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwQTBBMEEiLz48dGV4dCB4PSIxNTAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI0ZGMDBGRiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCI+UGhvdG8gMjwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzg4ODg4OCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                  </div>
+                </div>
+              </Card>
+              <Card>
+                <div className="relative h-full overflow-hidden rounded-lg">
+                  <img
+                    src="/photo3.jpg"
+                    alt="Project Photo 3"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwQTBBMEEiLz48dGV4dCB4PSIxNTAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzhCMDBGRiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCI+UGhvdG8gMzwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzg4ODg4OCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                  </div>
+                </div>
+              </Card>
+              <Card>
+                <div className="relative h-full overflow-hidden rounded-lg">
+                  <img
+                    src="/photo4.jpg"
+                    alt="Project Photo 4"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDMwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwQTBBMEEiLz48dGV4dCB4PSIxNTAiIHk9IjE4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzAwRkZGRiIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCI+UGhvdG8gNDwvdGV4dD48dGV4dCB4PSIxNTAiIHk9IjIyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzg4ODg4OCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxMiI+SW1hZ2UgTm90IEZvdW5kPC90ZXh0Pjwvc3ZnPg==';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                  </div>
+                </div>
+              </Card>
+            </CardSwap>
+          </motion.div>
         </div>
 
         {/* CTA Section */}
@@ -168,7 +242,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-1"
         >
           <div className="glass rounded-xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-cyber-text mb-4">

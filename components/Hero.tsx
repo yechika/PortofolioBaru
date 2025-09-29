@@ -99,7 +99,7 @@ export function Hero() {
             <SplitText
               text="Hello, World... i'm"
               tag="h1" 
-              className="text-4xl font-bold tracking-wider"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-wider"
               delay={80}
               duration={0.8}
               ease="power3.out"
