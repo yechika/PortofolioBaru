@@ -79,6 +79,19 @@ const projects: Project[] = [
     type: 'academic',
     icon: <Globe className="w-5 h-5" />,
     image: '/api/placeholder/400/250'
+  },
+  {
+    id: 6,
+    title: 'Alzheimer Prediction API',
+    description: 'Machine learning API for Alzheimer’s disease prediction.',
+    longDescription: 'Developed a RESTful API using Flask to serve a machine learning model for Alzheimer’s disease prediction based on MRI scans. Implemented data preprocessing, model training, and evaluation using Python libraries such as TensorFlow and Scikit-learn.',
+    tech: ['Flask', 'Python', 'Jupyter Notebook', 'REST API', 'HuggingFace', 'Docker', 'Scikit-learn', 'Random Forest'],
+    date: 'Oct 2025',
+    github: 'https://github.com/yechika/Alzheimer-Prediction-RandomForest',
+    link: 'https://salehxgr-alzheimer-prediction.hf.space/',
+    type: 'personal',
+    icon: <Database className="w-5 h-5" />,
+    image: '/api/placeholder/400/250'
   }
 ];
 

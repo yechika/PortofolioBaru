@@ -8,6 +8,7 @@ import {
   Database,
   Server,
   ArrowDownRight,
+  Download,
 } from "lucide-react";
 import Squares from "./Squares";
 import SplitText from "./SplitText";
@@ -55,6 +56,15 @@ export function Hero() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const downloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/CV_DanielDirgantara.pdf";
+    link.download = "CV_DanielDirgantara.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -186,18 +196,39 @@ export function Hero() {
             transition={{ delay: 1.1 }}
             className="pt-8"
           > */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => scrollToSection("projects")}
-            className="cyber-button text-lg px-8 py-4 rounded-lg"
-            data-cursor="pointer"
-          >
-            <span className="relative z-10 flex items-center gap-2 justify-center">
-              Explore My Work
-              <ArrowDownRight className="w-5 h-5" />
-            </span>
-          </motion.button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToSection("projects")}
+              className="cyber-button text-lg px-8 py-4 rounded-lg"
+              data-cursor="pointer"
+            >
+              <span className="relative z-10 flex items-center gap-2 justify-center">
+                Explore My Work
+                <ArrowDownRight className="w-5 h-5" />
+              </span>
+            </motion.button>
+
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={downloadCV}
+              className="cyber-button text-lg px-8 py-4 rounded-lg"
+              data-cursor="pointer"
+            >
+              <span className="relative z-10 flex items-center gap-2 justify-center">
+                Download CV
+                <Download className="w-5 h-5" />
+              </span>
+            </motion.button>
+          </div>
           {/* </motion.div> */}
         </motion.div>
 
