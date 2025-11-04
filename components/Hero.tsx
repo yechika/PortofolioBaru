@@ -19,10 +19,10 @@ export function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const texts = [
-    "Backend Developer",
-    "Database Administrator",
-    "Full-Stack Developer",
-    "Problem Solver",
+    "I turn data chaos into order",
+    "I architect systems that scale",
+    "I build APIs that teams love",
+    "I solve problems before they happen",
   ];
 
   useEffect(() => {
@@ -153,10 +153,9 @@ export function Hero() {
             transition={{ delay: 0.7 }}
             className="max-w-2xl mx-auto text-lg md:text-xl text-cyber-muted leading-relaxed"
           >
-            Computer Science student at{" "}
-            <span className="text-cyber-cyan font-mono">BINUS University</span>{" "}
-            specializing in database management and backend development.
+            Building production systems at BINUS as a Database Administrator
             <br />
+            <span className="text-cyber-cyan font-mono">Where others see complexity, I see opportunity</span>
           </motion.p>
 
           {/* Tech Icons */}
