@@ -8,7 +8,7 @@ export function About() {
   const [currentText, setCurrentText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
   
-  const fullText = "I don't just write code, I solve business problems. Currently managing production databases at BINUS while shipping backend systems that serve 200+ users. When I see a manual 2-hour process, I build a 30-second automation. That's not just coding, that's impact.";
+  const fullText = "A motivated Computer Science student at BINUS University specializing in database management and backend development. Currently seeking opportunities to solve real-world problems through innovative technology solutions.";
   
   useEffect(() => {
     if (currentText.length < fullText.length) {
@@ -68,7 +68,7 @@ export function About() {
           >
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-glow-cyan">The Story Behind the Code</span>
+                <span className="text-glow-cyan">Protocol: About</span>
               </h2>
               
               {/* Typing Animation */}
@@ -156,7 +156,7 @@ export function About() {
             <div>
               <h3 className="text-2xl font-bold text-cyber-text mb-8 flex items-center">
                 <div className="w-1 h-8 bg-cyber-cyan mr-4"></div>
-                Where I've Made My Mark
+                Experience Log
               </h3>
               
               <div className="space-y-6">

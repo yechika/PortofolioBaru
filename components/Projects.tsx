@@ -7,141 +7,91 @@ import { useState } from 'react';
 interface Project {
   id: number;
   title: string;
-  snapshot: string;
-  impact: string;
-  story: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
+  description: string;
+  longDescription: string;
   tech: string[];
   link?: string;
   github?: string;
   date: string;
   type: 'personal' | 'bslc' | 'academic';
   icon: React.ReactNode;
-  metrics?: {
-    label: string;
-    value: string;
-    color: string;
-  }[];
+  image: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
     title: 'Umadle',
-    snapshot: 'Built a viral daily gaming experience that hooks players',
-    impact: 'Created engaging gameplay loop with 500+ daily active players',
-    story: 'Noticed the Wordle phenomenon and saw an opportunity to combine it with anime character guessing',
-    challenge: 'How do you keep players coming back every day without getting bored?',
-    solution: 'Progressive clue system + Google OAuth for saving streaks + daily rotation algorithm',
-    outcome: 'Achieved consistent daily engagement with players maintaining 30+ day streaks',
+    description: 'A Wordle-inspired daily guessing game for Uma Musume characters.',
+    longDescription: 'Developed a full-stack, Wordle-inspired daily guessing game featuring character rotation, progressive clue system, and dynamic scoring. Integrated Google OAuth for secure authentication and Firebase Firestore for game progress synchronization.',
     tech: ['React', 'TypeScript', 'Vite', 'Firebase', 'Tailwind CSS', 'Vercel'],
     link: 'http://umadle.vercel.app/',
     github: 'https://github.com/yechika',
     date: 'Sep 2025',
     type: 'personal',
     icon: <Gamepad2 className="w-5 h-5" />,
-    metrics: [
-      { label: 'Daily Users', value: '500+', color: 'text-cyber-cyan' },
-      { label: 'Avg Streak', value: '30 days', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   },
   {
     id: 2,
     title: 'Sheet Generator',
-    snapshot: 'Transformed hours of manual Excel work into seconds',
-    impact: 'Reduced document generation time by 95% for BSLC operations team',
-    story: 'The BSLC team spent 2-3 hours weekly creating repetitive Excel reports manually',
-    challenge: 'Preserve complex Excel styling (merged cells, fonts, colors) while dynamically filling data',
-    solution: 'Built REST API using ExcelJS that parses template structure and maintains formatting integrity',
-    outcome: 'What took 2 hours now takes 30 seconds. Team saves 10+ hours monthly',
+    description: 'Dynamic document generation tool with Excel template parsing.',
+    longDescription: 'Developed the backend service using Node.js and Express, creating a REST API for dynamic document generation. Engineered core logic using ExcelJS to parse complex Excel templates while preserving styling, fonts, colors, and merged cells.',
     tech: ['Express.js', 'Node.js', 'ExcelJS', 'REST API'],
     link: 'https://sheet-generator-bslc.vercel.app/',
     date: 'Aug 2025',
     type: 'bslc',
     icon: <Code2 className="w-5 h-5" />,
-    metrics: [
-      { label: 'Time Saved', value: '95%', color: 'text-cyber-cyan' },
-      { label: 'Templates', value: '12+', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   },
   {
     id: 3,
-    title: "Study2Challenge Platform",
-    snapshot: 'Powered backend for 200+ student learning journeys',
-    impact: 'Enabled personalized learning paths for BSLC mentorship program',
-    story: 'BSLC needed a way to manage hundreds of students across multiple learning tracks',
-    challenge: 'Design flexible API that handles role-based data (mentor/mentee) without performance issues',
-    solution: 'Built modular Express.js endpoints with MongoDB aggregation for efficient role-based queries',
-    outcome: 'Platform now serves 200+ students with <200ms response times',
+    title: "Study2Challenge's Website",
+    description: 'Backend development for BSLC educational platform.',
+    longDescription: 'Developed key API endpoints for the Nindyamaya backend to fetch role-specific homepage data, session details, and mentee lists. Built scalable backend architecture using Express.js and MongoDB for efficient data management.',
     tech: ['Express.js', 'MongoDB', 'Node.js', 'REST API'],
     link: 'https://www.study2challenge.bslc.or.id/',
     date: 'May 2025',
     type: 'bslc',
     icon: <Users className="w-5 h-5" />,
-    metrics: [
-      { label: 'Students', value: '200+', color: 'text-cyber-cyan' },
-      { label: 'Response', value: '<200ms', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   },
   {
     id: 4,
     title: 'Aurevo',
-    snapshot: 'Architected complete hotel booking system from database up',
-    impact: 'Demonstrated enterprise-level database design and transaction handling',
-    story: 'Academic project to master relational database design and complex workflows',
-    challenge: 'Handle concurrent bookings, prevent double-booking, maintain data integrity',
-    solution: 'Designed normalized MySQL schema with transaction locks and comprehensive validation',
-    outcome: 'Zero double-bookings in stress testing with 50 concurrent users',
+    description: 'Web-based hotel reservation system with comprehensive booking management.',
+    longDescription: 'Developed a comprehensive hotel reservation system using Laravel and Blade templates. Implemented MySQL for efficient database management, user authentication, room booking workflows, and reservation management features.',
     tech: ['Laravel', 'Blade', 'MySQL', 'PHP'],
     github: 'https://github.com/yechika/Hotel_DB_Design.git',
     date: 'Feb 2025',
     type: 'academic',
     icon: <Database className="w-5 h-5" />,
-    metrics: [
-      { label: 'Tables', value: '12', color: 'text-cyber-cyan' },
-      { label: 'Integrity', value: '100%', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   },
   {
     id: 5,
     title: 'TrashPac',
-    snapshot: 'Gamified environmental awareness with real-time competition',
-    impact: 'Engaged 50+ users in competitive recycling tracking game',
-    story: 'Created educational game to make environmental action fun and competitive',
-    challenge: 'Sync real-time game state across multiple players without lag',
-    solution: 'Leveraged Firebase real-time database with optimistic UI updates',
-    outcome: 'Smooth multiplayer experience with <100ms sync time',
+    description: 'Real-time web application for environmental awareness.',
+    longDescription: 'Developed a web-based application focusing on real-time user interactions and environmental consciousness. Integrated Firebase for database management and real-time data synchronization across multiple users.',
     tech: ['Vanilla JS', 'Firebase', 'HTML', 'CSS'],
     link: 'https://daniel-dirgantara.vercel.app/',
     date: 'May 2024',
     type: 'academic',
     icon: <Globe className="w-5 h-5" />,
-    metrics: [
-      { label: 'Players', value: '50+', color: 'text-cyber-cyan' },
-      { label: 'Sync Time', value: '<100ms', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   },
   {
     id: 6,
     title: 'Alzheimer Prediction API',
-    snapshot: 'Deployed ML model as production-ready API for medical predictions',
-    impact: 'Made complex ML accessible through simple REST interface',
-    story: 'Wanted to bridge gap between ML research and practical medical applications',
-    challenge: 'Package trained model with preprocessing pipeline into deployable API',
-    solution: 'Built Flask API with containerized deployment, handled model versioning and validation',
-    outcome: 'API serves predictions in <2s with 85% model accuracy',
+    description: "Machine learning API for Alzheimer's disease prediction.",
+    longDescription: "Developed a RESTful API using Flask to serve a machine learning model for Alzheimer's disease prediction based on MRI scans. Implemented data preprocessing, model training, and evaluation using Python libraries such as TensorFlow and Scikit-learn.",
     tech: ['Flask', 'Python', 'Jupyter Notebook', 'REST API', 'HuggingFace', 'Docker', 'Scikit-learn', 'Random Forest'],
     date: 'Oct 2025',
     github: 'https://github.com/yechika/Alzheimer-Prediction-RandomForest',
     link: 'https://salehxgr-alzheimer-prediction.hf.space/',
     type: 'personal',
     icon: <Database className="w-5 h-5" />,
-    metrics: [
-      { label: 'Accuracy', value: '85%', color: 'text-cyber-cyan' },
-      { label: 'Response', value: '<2s', color: 'text-cyber-magenta' }
-    ]
+    image: '/api/placeholder/400/250'
   }
 ];
 
@@ -150,10 +100,10 @@ export function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const filters = [
-    { id: 'all', label: 'All Stories', count: projects.length },
-    { id: 'personal', label: 'Personal Ventures', count: projects.filter(p => p.type === 'personal').length },
-    { id: 'bslc', label: 'Team Impact', count: projects.filter(p => p.type === 'bslc').length },
-    { id: 'academic', label: 'Learning Labs', count: projects.filter(p => p.type === 'academic').length },
+    { id: 'all', label: 'All Projects', count: projects.length },
+    { id: 'personal', label: 'Personal', count: projects.filter(p => p.type === 'personal').length },
+    { id: 'bslc', label: 'BSLC', count: projects.filter(p => p.type === 'bslc').length },
+    { id: 'academic', label: 'Academic', count: projects.filter(p => p.type === 'academic').length },
   ];
 
   const filteredProjects = activeFilter === 'all'
@@ -172,6 +122,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -180,14 +131,14 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-glow-cyan">Story Snapshots</span>
+            <span className="text-glow-cyan">Projects</span>
           </h2>
           <p className="text-xl text-cyber-muted max-w-2xl mx-auto">
-            Real problems. Real solutions. Real impact.
-            <br />
-            <span className="text-sm text-cyber-cyan">Each project tells a story of turning complexity into clarity</span>
+            A collection of projects that showcase my journey through backend development,
+            database management, and full-stack engineering.
           </p>
 
+          {/* Project Filters */}
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             {filters.map((filter) => (
               <motion.button
@@ -208,6 +159,7 @@ export function Projects() {
           </div>
         </motion.div>
 
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
@@ -221,6 +173,7 @@ export function Projects() {
               className="relative group"
             >
               <div className="glass rounded-xl p-6 h-full transition-all duration-300 hover:border-cyber-cyan/50 relative overflow-hidden">
+                {/* Hover Effect Background */}
                 <motion.div
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{
@@ -231,8 +184,10 @@ export function Projects() {
                   className="absolute inset-0 bg-gradient-to-r from-cyber-cyan to-cyber-magenta rounded-xl"
                 />
 
+                {/* Project Content */}
                 <div className="relative z-10">
-                  <div className="flex items-center justify-between mb-3">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-2">
                       <div className="p-2 rounded-lg border border-cyber-cyan/30 bg-cyber-cyan/5">
                         {project.icon}
@@ -250,15 +205,12 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <div className="mb-4 p-3 rounded-lg bg-cyber-cyan/5 border border-cyber-cyan/20">
-                    <p className="text-sm font-semibold text-cyber-cyan mb-1">
-                      {project.snapshot}
-                    </p>
-                    <p className="text-xs text-cyber-muted">
-                      {project.impact}
-                    </p>
-                  </div>
+                  {/* Description */}
+                  <p className="text-cyber-muted mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
 
+                  {/* Long Description - Shows on hover */}
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{
@@ -266,48 +218,23 @@ export function Projects() {
                       height: hoveredProject === project.id ? 'auto' : 0
                     }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden space-y-3 mb-4"
+                    className="overflow-hidden"
                   >
-                    <div className="text-xs space-y-2">
-                      <div>
-                        <span className="font-semibold text-cyber-magenta">Challenge:</span>
-                        <p className="text-cyber-muted mt-1">{project.challenge}</p>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-cyber-cyan">Solution:</span>
-                        <p className="text-cyber-muted mt-1">{project.solution}</p>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-cyber-purple">Outcome:</span>
-                        <p className="text-cyber-muted mt-1">{project.outcome}</p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-cyber-text mb-4">
+                      {project.longDescription}
+                    </p>
                   </motion.div>
 
-                  {project.metrics && (
-                    <div className="flex gap-4 mb-4">
-                      {project.metrics.map((metric, idx) => (
-                        <div key={idx} className="flex-1 text-center p-2 rounded-lg glass">
-                          <div className={`text-lg font-bold font-mono ${metric.color}`}>
-                            {metric.value}
-                          </div>
-                          <div className="text-xs text-cyber-muted">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.slice(0, 4).map((tech) => (
-                      <span key={tech} className="tech-pill text-xs">
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="tech-pill">
                         {tech}
                       </span>
                     ))}
-                    {project.tech.length > 4 && (
-                      <span className="tech-pill text-xs">+{project.tech.length - 4}</span>
-                    )}
                   </div>
 
+                  {/* Links */}
                   <div className="flex items-center space-x-4">
                     {project.link && (
                       <motion.a
